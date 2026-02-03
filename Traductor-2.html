@@ -1,0 +1,542 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script>```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Video y Motion Graphics | Video Editor and Motion Graphics | Видеоредактор и моушн-графика</title>
+    <link href="https://fonts.googleapis.com/css2?family=Proza+Libre&family=Noto+Serif&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            list-style: none;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Proza Libre', 'Noto Serif', sans-serif;
+            background: #f0f4f8;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Estilos para el encabezado */
+        header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background-color: #1e3a8a;
+            opacity: 0.9;
+        }
+
+        header .topbar {
+            width: 30%;
+            display: flex;
+            align-items: center;
+        }
+
+        header .topbar .header_logo {
+            width: 70%;
+        }
+
+        header .topbar .header_logo .pngLogo {
+            width: 100%;
+            padding: 1em;
+        }
+
+        header nav {
+            display: flex;
+            width: 70%;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            align-items: center;
+        }
+
+        header nav ul li a {
+            display: block;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            padding: 1em;
+            border-radius: 15px;
+            transition: 0.5s;
+        }
+
+        header nav ul li a:hover {
+            background: #60a5fa;
+            color: #1e3a8a;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            margin-right: 1em;
+        }
+
+        .lang-toggle select {
+            padding: 0.5em;
+            border-radius: 5px;
+            background: #60a5fa;
+            color: #1e3a8a;
+            font-family: 'Proza Libre', sans-serif;
+        }
+
+        /* Estilos para secciones internas */
+        .chapter {
+            padding-top: 100px;
+        }
+
+        .focus-team {
+            margin: 0.5em;
+            background: #3b82f6;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .member-team {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #us {
+            background: #f0f4f8;
+        }
+
+        #services {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }
+
+        .goals {
+            width: 100%;
+            margin: 0.5em;
+            background: #1e3a8a;
+            color: white;
+        }
+
+        #contact {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }
+
+        .profile {
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .midspace {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity {
+            border-radius: 10%;
+            border: 2px solid #1e40af;
+        }
+
+        .pieDePag {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        /* Elementos comunes en el diseño */
+        .sombra { box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); }
+        .mgb-zero { margin-bottom: 0; }
+        .pad1em { padding: 1em; }
+        .mgn1em { margin: 1em; }
+        .blanco { color: white; }
+        .turquesa { color: #1e40af; }
+        .oscuro { color: #172554; }
+
+        /* Estilos de texto */
+        h3 {
+            width: 100%;
+            font-weight: bold;
+            text-shadow: 1px 1px grey;
+        }
+
+        h5 {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.25em;
+            font-weight: bold;
+            text-shadow: 1px 1px grey;
+        }
+
+        .subtitle {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.25em;
+            text-shadow: 1px 1px grey;
+        }
+
+        .basic { color: #303030; }
+        .leftext { text-align: left; }
+        .rightext { text-align: right; }
+        .justext { text-align: justify; }
+        .centext { text-align: center; }
+
+        .attention {
+            font-size: 2em;
+            font-weight: 600;
+        }
+
+        .narrate {
+            font-size: 1.3em;
+        }
+
+        .name {
+            font-weight: 700;
+            font-size: 1.25em;
+            color: white;
+        }
+
+        .chair {
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #1e40af;
+        }
+
+        .works {
+            font-weight: 700;
+            font-size: 1.25em;
+            color: #1e40af;
+        }
+
+        .descript {
+            color: #1e3a8a;
+        }
+
+        /* Language-specific styling */
+        .lang-es, .lang-en, .lang-ru {
+            display: none;
+            font-size: 1em;
+        }
+
+        .lang-es.active, .lang-en.active, .lang-ru.active {
+            display: block;
+        }
+
+        .lang-es, .lang-en { font-family: 'Proza Libre', sans-serif; }
+        .lang-ru { font-family: 'Noto Serif', sans-serif; }
+
+        /* Media query mobile */
+        @media screen and (max-width: 800px) {
+            header .topbar {
+                width: 20%;
+            }
+
+            header .topbar .header_logo {
+                width: 100%;
+            }
+
+            header nav {
+                width: 80%;
+            }
+
+            header nav ul li a {
+                transition: none;
+            }
+
+            .hide { display: none; }
+            .mgnlat { margin-left: 1em; margin-right: 1em; }
+
+            .member-team {
+                width: 40%;
+            }
+
+            .lang-toggle select46 {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <div class="header_logo">
+                <img class="pngLogo" src="logo.png" alt="Logo">
+            </div>
+        </div>
+        <nav>
+            <div class="lang-toggle">
+                <select id="language-select" onchange="changeLanguage()">
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                    <option value="ru">Русский</option>
+                </select>
+            </div>
+            <ul>
+                <li><a href="#home"><span class="lang-es active">Inicio</span><span class="lang-en">Home</span><span class="lang-ru">Главная</span></a></li>
+                <li><a href="#services"><span class="lang-es active">Servicios</span><span class="lang-en">Services</span><span class="lang-ru">Услуги</span></a></li>
+                <li><a href="#portfolio"><span class="lang-es active">Portfolio</span><span class="lang-en">Portfolio</span><span class="lang-ru">Портфолио</span></a></li>
+                <li><a href="#us"><span class="lang-es active">Sobre Nosotros</span><span class="lang-en">About Us</span><span class="lang-ru">О нас</span></a></li>
+                <li><a href="#contact"><span class="lang-es active">Contacto</span><span class="lang-en">Contact</span><span class="lang-ru">Контакты</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="chapter">
+        <div class="focus-team">
+            <div class="member-team sombra">
+                <h3 class="centext blanco">
+                    <span class="lang-es active">Transforma tu visión en realidad</span>
+                    <span class="lang-en">Transform your vision into reality</span>
+                    <span class="lang-ru">Превратите ваше видение в реальность</span>
+                </h3>
+                <p class="narrate justext blanco">
+                    <span class="lang-es active">Creamos contenido visual impactante para capturar la esencia de tu mensaje.</span>
+                    <span class="lang-en">We create impactful visual content to capture the essence of your message.</span>
+                    <span class="lang-ru">Мы создаем впечатляющий визуальный контент, чтобы передать суть вашего сообщения.</span>
+                </p>
+            </div>
+            <div class="member-team sombra">
+                <h3 class="centext blanco">
+                    <span class="lang-es active">Diseño en movimiento</span>
+                    <span class="lang-en">Design in motion</span>
+                    <span class="lang-ru">Дизайн в движении</span>
+                </h3>
+                <p class="narrate justext blanco">
+                    <span class="lang-es active">Animaciones que comunican y capturan la atención de tu audiencia.</span>
+                    <span class="lang-en">Animations that communicate and capture your audience's attention.</span>
+                    <span class="lang-ru">Анимации, которые передают сообщение и привлекают внимание вашей аудитории.</span>
+                </p>
+            </div>
+            <div class="member-team sombra">
+                <h3 class="centext blanco">
+                    <span class="lang-es active">Post-producción de primer nivel</span>
+                    <span class="lang-en">Top-tier post-production</span>
+                    <span class="lang-ru">Пост-продакшн высшего уровня</span>
+                </h3>
+                <p class="narrate justext blanco">
+                    <span class="lang-es active">Desde la edición básica hasta la corrección de color avanzada, tenemos todo cubierto.</span>
+                    <span class="lang-en">From basic editing to advanced color correction, we’ve got it covered.</span>
+                    <span class="lang-ru">От базового монтажа до продвинутой цветокоррекции — мы охватываем все.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="chapter">
+        <h3 class="centext oscuro">
+            <span class="lang-es active">Nuestros Servicios de Edición de Video y Motion Graphics</span>
+            <span class="lang-en">Our Video Editing and Motion Graphics Services</span>
+            <span class="lang-ru">Наши услуги по видеомонтажу и моушн-графике</span>
+        </h3>
+        <div class="midspace">
+            <div class="member-team sombra">
+                <h5 class="centext blanco">
+                    <span class="lang-es active">Edición de Video Profesional</span>
+                    <span class="lang-en">Professional Video Editing</span>
+                    <span class="lang-ru">Профессиональный видеомонтаж</span>
+                </h5>
+                <p class="descript justext">
+                    <span class="lang-es active">Transformamos tus grabaciones en producciones pulidas y atractivas.</span>
+                    <span class="lang-en">We transform your footage into polished, engaging productions.</span>
+                    <span class="lang-ru">Мы превращаем ваши записи в отшлифованные, привлекательные проекты.</span>
+                </p>
+            </div>
+            <div class="member-team sombra">
+                <h5 class="centext blanco">
+                    <span class="lang-es active">Motion Graphics</span>
+                    <span class="lang-en">Motion Graphics</span>
+                    <span class="lang-ru">Моушн-графика</span>
+                </h5>
+                <p class="descript justext">
+                    <span class="lang-es active">Animaciones gráficas que realzan tu mensaje y atraen a tu audiencia.</span>
+                    <span class="lang-en">Graphic animations that enhance your message and engage your audience.</span>
+                    <span class="lang-ru">Графические анимации, которые усиливают ваше сообщение и привлекают аудиторию.</span>
+                </p>
+            </div>
+            <div class="member-team sombra">
+                <h5 class="centext blanco">
+                    <span class="lang-es active">Corrección de Color</span>
+                    <span class="lang-en">Color Correction</span>
+                    <span class="lang-ru">Цветокоррекция</span>
+                </h5>
+                <p class="descript justext">
+                    <span class="lang-es active">Ajustes precisos de color para mejorar el aspecto visual de tus proyectos.</span>
+                    <span class="lang-en">Precise color adjustments to enhance the visual appeal of your projects.</span>
+                    <span class="lang-ru">Точные настройки цвета для улучшения визуальной привлекательности ваших проектов.</span>
+                </p>
+            </div>
+            <div class="member-team sombra">
+                <h5 class="centext blanco">
+                    <span class="lang-es active">Post-Producción Completa</span>
+                    <span class="lang-en">Complete Post-Production</span>
+                    <span class="lang-ru">Полный пост-продакшн</span>
+                </h5>
+                <p class="descript justext">
+                    <span class="lang-es active">Servicios integrales para asegurar que tu video final sea perfecto.</span>
+                    <span class="lang-en">Comprehensive services to ensure your final video is perfect.</span>
+                    <span class="lang-ru">Комплексные услуги для обеспечения идеального финального видео.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="chapter">
+        <h3 class="centext oscuro">
+            <span class="lang-es active">Nuestro Portfolio</span>
+            <span class="lang-en">Our Portfolio</span>
+            <span class="lang-ru">Наше портфолио</span>
+        </h3>
+        <div class="focus-team">
+            <div class="member-team sombra">
+                <img class="activity" src="video1.jpg" alt="Proyecto de Edición de Video | Video Editing Project | Проект видеомонтажа">
+                <p class="works centext">
+                    <span class="lang-es active">Proyecto de Edición de Video</span>
+                    <span class="lang-en">Video Editing Project</span>
+                    <span class="lang-ru">Проект видеомонтажа</span>
+                </p>
+            </div>
+            <div class="member-team sombra">
+                <img class="activity" src="motion1.jpg" alt="Motion Graphics para Publicidad | Motion Graphics for Advertising | Моушн-графика для рекламы">
+                <p class="works centext">
+                    <span class="lang-es active">Motion Graphics para Publicidad</span>
+                    <span class="lang-en">Motion Graphics for Advertising</span>
+                    <span class="lang-ru">Моушн-графика для рекламы</span>
+                </p>
+            </div>
+            <div class="member-team sombra">
+                <img class="activity" src="corporate1.jpg" alt="Video Corporativo | Corporate Video | Корпоративное видео">
+                <p class="works centext">
+                    <span class="lang-es active">Video Corporativo</span>
+                    <span class="lang-en">Corporate Video</span>
+                    <span class="lang-ru">Корпоративное видео</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="us" class="chapter">
+        <h3 class="centext oscuro">
+            <span class="lang-es active">Sobre Nosotros</span>
+            <span class="lang-en">About Us</span>
+            <span class="lang-ru">О нас</span>
+        </h3>
+        <p class="narrate justext">
+            <span class="lang-es active">Somos un equipo de profesionales en edición de video y motion graphics con una pasión por contar historias a través de imágenes y sonido. Nuestro objetivo es ofrecer servicios de alta calidad que superen las expectativas de nuestros clientes.</span>
+            <span class="lang-en">We are a team of professionals in video editing and motion graphics with a passion for storytelling through visuals and sound. Our goal is to deliver high-quality services that exceed our clients’ expectations.</span>
+            <span class="lang-ru">Мы — команда профессионалов в области видеомонтажа и моушн-графики, увлеченных созданием историй через визуальные образы и звук. Наша цель — предоставлять услуги высокого качества, которые превосходят ожидания клиентов.</span>
+        </p>
+    </section>
+
+    <section id="contact" class="chapter">
+        <h3 class="centext oscuro">
+            <span class="lang-es active">Contáctanos</span>
+            <span class="lang-en">Contact Us</span>
+            <span class="lang-ru">Свяжитесь с нами</span>
+        </h3>
+        <div class="midspace">
+            <div class="member-team sombra">
+                <p class="works centext">Twitter</p>
+                <p class="descript centext">@editor_video_mg</p>
+            </div>
+            <div class="member-team sombra">
+                <p class="works centext">
+                    <span class="lang-es active">Teléfono</span>
+                    <span class="lang-en">Phone</span>
+                    <span class="lang-ru">Телефон</span>
+                </p>
+                <p class="descript centext">+54 9 11 12345678</p>
+            </div>
+            <div class="member-team sombra">
+                <p class="works centext">Instagram</p>
+                <p class="descript centext">@editor_video_mg</p>
+            </div>
+            <div class="member-team sombra">
+                <p class="works centext">
+                    <span class="lang-es active">Email</span>
+                    <span class="lang-en">Email</span>
+                    <span class="lang-ru">Электронная почта</span>
+                </p>
+                <p class="descript centext">contact@videoeditormg.com</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="pieDePag">
+        <p>
+            <span class="lang-es active">© 2025 - Editor de Video y Motion Graphics. Todos los derechos reservados.</span>
+            <span class="lang-en">© 2025 - Video Editor and Motion Graphics. All rights reserved.</span>
+            <span class="lang-ru">© 2025 - Видеоредактор и моушн-графика. Все права защищены.</span>
+        </p>
+    </footer>
+
+    <script>
+        function changeLanguage() {
+            const select = document.getElementById('language-select');
+            const selectedLang = select.value;
+            const elements = document.querySelectorAll('.lang-es, .lang-en, .lang-ru');
+
+            elements.forEach(element => {
+                element.classList.remove('active');
+                if (element.classList.contains(`lang-${selectedLang}`)) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Set default language to Spanish
+        document.addEventListener('DOMContentLoaded', () => {
+            changeLanguage();
+        });
+    </script>
+</body>
+</html>
+```

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgyi Portfolio</title>
+     <link rel="icon" href="img/georgiy.ico" type="image/png"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Proza+Libre&family=Noto+Serif&display=swap" rel="stylesheet">    
+    
+</head>
+<body>
+    <header>        
+        <nav>
+           <div class="lang-toggle">
+                <select id="language-select" onchange="changeLanguage()">
+                    <option value="ru" data-flag="ru">Русский</option>
+                    <option value="es" data-flag="ar">Español</option>
+                    <option value="en" data-flag="gb">English</option>
+                </select>
+            </div>
+            <ul>
+                <li><a href="#home"><span class="lang-es active">Inicio</span><span class="lang-en">Home</span><span class="lang-ru">Главная</span></a></li>
+                <li><a href="#services"><span class="lang-es active">Servicios</span><span class="lang-en">Services</span><span class="lang-ru">Услуги</span></a></li>
+                <li><a href="#portfolio"><span class="lang-es active">Portfolio</span><span class="lang-en">Portfolio</span><span class="lang-ru">Портфолио</span></a></li>
+                <li><a href="#us"><span class="lang-es active">Sobre Mi</span><span class="lang-en">About Me</span><span class="lang-ru">обо мне</span></a></li>
+                <li><a href="#contact"><span class="lang-es active">Contacto</span><span class="lang-en">Contact</span><span class="lang-ru">Контакты</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section id="home" class="chapter">
+        <video autoplay muted loop>
+            <source src="img/reel.mp4" type="video/mp4">
+            <span class="lang-ru active">Ваш браузер не поддерживает видео.</span>
+            <span class="lang-es">Tu navegador no soporta videos.</span>
+            <span class="lang-en">Your browser does not support video.</span>
+        </video>
+
+        <div class="hero-content">
+            <h3 class="centext oscuro">
+                <span class="lang-ru active">Видео-редактор и моушн-дизайнер</span>
+                <span class="lang-es">Editor de Video y Motion Graphic</span>
+                <span class="lang-en">Video and Motion Graphic Editor</span>
+            </h3>
+
+            <p>
+                <span class="lang-ru active">Создавайте потрясающие видеоролики с помощью интуитивно понятных инструментов и высококачественных эффектов.</span>
+                <span class="lang-es">Crea videos impresionantes con herramientas intuitivas y efectos de alta calidad.</span>
+                <span class="lang-en">Create stunning videos with intuitive tools and high-quality effects.</span>
+            </p>
+
+            <p>
+                <span class="lang-ru active">Оживляйте свои истории с помощью видео, которые вдохновляют и объединяют.</span>
+                <span class="lang-es">Da vida a tus historias con videos que inspiran y conectan.</span>
+                <span class="lang-en">Bring your stories to life with videos that inspire and connect.</span>
+            </p>
+        </div>
+</section>
+    
+    <section class="services-section" id="services">
+        <h2 class="centext oscuro">
+            <span class="lang-es active">Nuestros Servicios de Producción de Video</span>
+            <span class="lang-en">Our Video Production Services</span>
+            <span class="lang-ru">Наши услуги по производству видео</span>
+        </h2>
+        <div class="services-grid">
+            <div class="service-card sombra">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm4 4l4 3-4 3V9zm6 0h2v6h-2V9z"/>
+                </svg>
+                <h3 class="centext blanco">
+                    <span class="lang-es active">Edición de Video</span>
+                    <span class="lang-en">Video Editing</span>
+                    <span class="lang-ru">Видеомонтаж</span>
+                </h3>
+                <p class="descript justext">
+                    <span class="lang-es active">Transformamos tus grabaciones en producciones pulidas y atractivas.</span>
+                    <span class="lang-en">We transform your footage into polished, engaging productions.</span>
+                    <span class="lang-ru">Мы превращаем ваши записи в отшлифованные, привлекательные проекты.</span>
+                </p>
+            </div>
+            <div class="service-card sombra">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2l-2 6h-6l5 4-2 6 5-3.5 5 3.5-2-6 5-4h-6l-2-6z"/>
+                </svg>
+                <h3 class="centext blanco">
+                    <span class="lang-es active">Motion Graphics</span>
+                    <span class="lang-en">Motion Graphics</span>
+                    <span class="lang-ru">Моушн-графика</span>
+                </h3>
+                <p class="descript justext">
+                    <span class="lang-es active">Animaciones gráficas que realzan tu mensaje y atraen a tu audiencia.</span>
+                    <span class="lang-en">Graphic animations that enhance your message and engage your audience.</span>
+                    <span class="lang-ru">Графические анимации, которые усиливают ваше сообщение и привлекают аудиторию.</span>
+                </p>
+            </div>
+            <div class="service-card sombra">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6V6h12v13zm-7-7l-3 2 3 2v-4z"/>
+                </svg>
+                <h3 class="centext blanco">
+                    <span class="lang-es active">Cinematografía</span>
+                    <span class="lang-en">Cinematography</span>
+                    <span class="lang-ru">Кинематография</span>
+                </h3>
+                <p class="descript justext">
+                    <span class="lang-es active">Servicios profesionales de filmación para capturar tu visión con precisión y estilo.</span>
+                    <span class="lang-en">Professional filming services to capture your vision with precision and style.</span>
+                    <span class="lang-ru">Профессиональные услуги съемки для точной и стильной реализации вашего видения.</span>
+                </p>
+            </div>
+            <div class="service-card sombra">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zm-4-8a4 4 0 108 0 4 4 0 00-8 0z"/>
+                </svg>
+                <h3 class="centext blanco">
+                    <span class="lang-es active">Corrección de Color</span>
+                    <span class="lang-en">Color Grading</span>
+                    <span class="lang-ru">Цветокоррекция</span>
+                </h3>
+                <p class="descript justext">
+                    <span class="lang-es active">Ajustes precisos de color para mejorar el aspecto visual de tus proyectos.</span>
+                    <span class="lang-en">Precise color adjustments to enhance the visual appeal of your projects.</span>
+                    <span class="lang-ru">Точные настройки цвета для улучшения визуальной привлекательности ваших проектов.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="chapter">
+        <h3 class="centext oscuro">
+            <span class="lang-es active">Nuestro Portfolio</span>
+            <span class="lang-en">Our Portfolio</span>
+            <span class="lang-ru">Наше портфолио</span>
+        </h3>
+
+
+        
+
+
+
+
+        <div class="focus-team">
+            <div class="member-team sombra">
+                <img class="activity" src="video1.jpg" alt="Proyecto de Edición de Video | Video Editing Project | Проект видеомонтажа">
+                <p class="works centext">
+                    <span class="lang-es active">Proyecto de Edición de Video</span>
+                    <span class="lang-en">Video Editing Project</span>
+                    <span class="lang-ru">Проект видеомонтажа</span>
+                </p>
+            </div>
+            <div class="member-team sombra">
+                <img class="activity" src="motion1.jpg" alt="Motion Graphics para Publicidad | Motion Graphics for Advertising | Моушн-графика для рекламы">
+                <p class="works centext">
+                    <span class="lang-ru active">Моушн-графика для рекламы</span>
+                    <span class="lang-es ">Motion Graphics para Publicidad</span>
+                    <span class="lang-en">Motion Graphics for Advertising</span>                    
+                </p>
+            </div>
+            <div class="member-team sombra">
+                <img class="activity" src="corporate1.jpg" alt="Video Corporativo | Corporate Video | Корпоративное видео">
+                <p class="works centext">
+                    <span class="lang-es active">Video Corporativo</span>
+                    <span class="lang-en">Corporate Video</span>
+                    <span class="lang-ru">Корпоративное видео</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="me" class="chapter">
+        <h3 class="centext oscuro">
+            <span class="lang-ru active">обо мне</span>
+            <span class="lang-es ">Sobre Mi</span>
+            <span class="lang-en">About Me</span>
+            
+        </h3>
+
+        <div class="centext">
+            <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile">
+        </div>
+
+
+        <p class="narrate justext">
+            <span class="lang-ru">Я посвятил почти всю свою жизнь аудиовизуальной сфере, работая во всех жанрах, кроме художественного кино. Эта профессия дала мне возможность путешествовать, знакомиться с различными культурами и совершенствовать свои навыки.
+                С 2018 года я работаю в Буэнос-Айресе, Аргентина, как видеоредактор, где продолжаю развиваться и применять свои знания в профессиональной среде.
+                Мой опыт включает монтаж новостных репортажей, телевизионных программ и съемку сериалов. Я работал как в государственных, так и в частных компаниях, что позволило мне получить широкий взгляд на отрасль.
+                Я постоянно ищу новые вызовы и возможности, чтобы внести свой творческий вклад и опыт в инновационные проекты, способные вдохновлять и приносить пользу.
+            </span>
+
+
+            <span class="lang-es">He dedicado casi toda mi vida al ámbito audiovisual, trabajando en todos los géneros excepto el cine de ficción. Esta profesión me ha brindado la oportunidad de viajar, descubrir diferentes culturas y mejorar mis habilidades. 
+                Desde 2018 trabajo en Buenos Aires, Argentina, como editor de video, donde continúo creciendo y 
+                aplicando mis conocimientos en un entorno profesional. Mi experiencia incluye la edición de reportajes de 
+                noticias, programas de televisión y la grabación de series. He trabajado tanto en empresas públicas como 
+                privadas, lo que me ha dado una amplia perspectiva de la industria. 
+                Estoy constantemente buscando nuevos desafíos y oportunidades para contribuir con mi 
+                creatividad y experiencia a proyectos innovadores que puedan inspirar y aportar valor.
+            </span>    
+
+            <span class="lang-en">I have dedicated almost my entire life to the audiovisual field, working in all genres except fiction films. This profession has given me the opportunity to travel, discover different cultures, and improve my skills.
+                Since 2018, I have been working in Buenos Aires, Argentina, as a video editor, where I continue to grow and apply my knowledge in a professional environment.
+                My experience includes editing news reports, television programs, and filming series. I have worked in both public and private companies, which has given me a broad perspective on the industry.
+                I am constantly looking for new challenges and opportunities to contribute my creativity and experience to innovative projects that can inspire and create value.
+            </span>
+            
+        </p>
+       
+    
+    </section>
+
+    
+   <section id="contact" class="chapter">  
+    
+    <h3 class="centext oscuro">
+            <span class="lang-ru active">Свяжитесь с нами</span>
+            <span class="lang-es ">Contáctame</span>
+            <span class="lang-en">Contact Me</span>            
+    </h3>    
+    
+
+    <form>
+        <input type="text" class="lang-ru active" placeholder="Имя" required>
+        <input type="text" class="lang-es" placeholder="Nombre" required>
+        <input type="text" class="lang-en" placeholder="Name" required>
+        
+        <input type="email" class="lang-ru active" placeholder="Электронная почта" required>
+        <input type="email" class="lang-es" placeholder="Correo Electrónico" required>
+        <input type="email" class="lang-en" placeholder="Email" required>
+        
+        <textarea class="lang-ru active" placeholder="Сообщение" required></textarea>
+        <textarea class="lang-es" placeholder="Mensaje" required></textarea>
+        <textarea class="lang-en" placeholder="Message" required></textarea>
+        
+
+        <button type="submit" class="lang-ru active">Отправить сообщение</button>
+        <button type="submit" class="lang-es">Enviar Mensaje</button>
+        <button type="submit" class="lang-en">Send Message</button>        
+    </form>
+    
+</section>
+   
+    <footer class="footerSection">
+        <p>
+            <span class="lang-ru active">© 2020 - Видеоредактор и моушн-графика. Все права защищены.</span>
+            <span class="lang-es ">© 2020 - Editor de Video y Motion Graphics. Todos los derechos reservados.</span>
+            <span class="lang-en">© 2020 - Video Editor and Motion Graphics. All rights reserved.</span>            
+        </p>
+    </footer>
+
+    
+    <script src="js/change-language.js"></script>
+    <script src="js/filename.js"></script>
+   
+</body>
+</html>

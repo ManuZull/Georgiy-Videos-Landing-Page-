@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" href="img/TK_favicon.png" type="image/png"/>
+    <title>Editor de Video y Motion Graphics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/950aaf266d.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+    <header class="sombra">
+        <div class="topbar">
+            <div class="header_logo">
+                <img class="pngLogo" src="./img/TK_logo1.png" alt="Logo Editor Video y Motion Graphics">
+            </div>
+        </div>
+        <nav>
+            <ul class="mgb-zero">
+                <li><a href="#"><i class="fas fa-home"></i><span class="hide"><br>Inicio</span></a></li>
+                <li><a href="#services"><i class="fas fa-briefcase"></i><span class="hide"><br>Servicios</span></a></li>
+                <li><a href="#portfolio"><i class="fas fa-portfolio"></i><span class="hide"><br>Portfolio</span></a></li>
+                <li><a href="#about"><i class="fas fa-users"></i><span class="hide"><br>Sobre Nosotros</span></a></li>
+                <li><a href="#contact"><i class="fas fa-mail-bulk"></i><span class="hide"><br>Contacto</span></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="carouselExampleCaptions" class="carousel slide sombra" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./img/slider1.jpg" class="d-block w-100" alt="Edición de Video">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="mgb-zero">Transforma tu visión en realidad</h5>
+                    <p class="subtitle mgb-zero">Creamos contenido visual impactante para capturar la esencia de tu mensaje.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./img/slider2.jpg" class="d-block w-100" alt="Motion Graphics">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="mgb-zero">Diseño en movimiento</h5>
+                    <p class="subtitle mgb-zero">Animaciones que comunican y capturan la atención de tu audiencia.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./img/slider3.jpg" class="d-block w-100" alt="Post-Producción">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="mgb-zero">Post-producción de primer nivel</h5>
+                    <p class="subtitle mgb-zero">Desde la edición básica hasta la corrección de color avanzada, tenemos todo cubierto.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </main>
+    
+    <section id="services" class="chapter">
+        <h3 class="centext turquesa pad1em">Nuestros Servicios de Edición de Video y Motion Graphics</h3>
+        <article class="midspace mgn1em">
+            <img class="activity sombra mgn1em" src="./img/service1.jpg" alt="Edición de Video">
+            <p class="works centext mgb-zero">Edición de Video Profesional</p>
+            <p class="descript centext mgb-zero">Transformamos tus grabaciones en producciones pulidas y atractivas.</p>
+        </article>
+        <article class="midspace mgn1em">
+            <img class="activity sombra mgn1em" src="./img/service2.jpg" alt="Motion Graphics">
+            <p class="works centext mgb-zero">Motion Graphics</p>
+            <p class="descript centext mgb-zero">Animaciones gráficas que realzan tu mensaje y atraen a tu audiencia.</p>
+        </article>
+        <article class="midspace mgn1em">
+            <img class="activity sombra mgn1em" src="./img/service3.jpg" alt="Corrección de Color">
+            <p class="works centext mgb-zero">Corrección de Color</p>
+            <p class="descript centext mgb-zero">Ajustes precisos de color para mejorar el aspecto visual de tus proyectos.</p>
+        </article>
+        <article class="midspace mgn1em">
+            <img class="activity sombra mgn1em" src="./img/service4.jpg" alt="Post-Producción">
+            <p class="works centext mgb-zero">Post-Producción Completa</p>
+            <p class="descript centext mgb-zero">Servicios integrales para asegurar que tu video final sea perfecto.</p>
+        </article>
+    </section>
+    
+    <section id="portfolio" class="chapter">
+        <h3 class="centext turquesa pad1em">Nuestro Portfolio</h3>
+        <div class="portfolio-gallery">
+            <div class="portfolio-item">
+                <img src="./img/portfolio1.jpg" alt="Proyecto 1">
+                <p class="centext">Proyecto de Edición de Video</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="./img/portfolio2.jpg" alt="Proyecto 2">
+                <p class="centext">Motion Graphics para Publicidad</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="./img/portfolio3.jpg" alt="Proyecto 3">
+                <p class="centext">Video Corporativo</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="chapter">
+        <h3 class="centext turquesa pad1em">Sobre Nosotros</h3>
+        <p class="basic centext narrate mgnlat">Somos un equipo de profesionales en edición de video y motion graphics con una pasión por contar historias a través de imágenes y sonido. Nuestro objetivo es ofrecer servicios de alta calidad que superen las expectativas de nuestros clientes.</p>
+    </section>
+    
+    <section id="contact" class="chapter">
+        <h3 class="centext oscuro pad1em">Contáctanos</h3>
+        <article class="member-team mgn1em">
+            <a class="centext turquesa" href="#"><i class="fab fa-instagram fa-7x"></i></a>
+            <p class="centext"><b>@editor_video_mg</b></p>
+        </article>
+        <article class="member-team mgn1em">
+            <a class="centext turquesa" href="#"><i class="fab fa-whatsapp fa-7x"></i></a>
+            <p class="centext"><b>+54 9 11 12345678</b></p>
+        </article>
+        <article class="member-team mgn1em">
+            <a class="centext turquesa" href="#"><i class="fab fa-linkedin fa-7x"></i></a>
+            <p class="centext"><b>@editor_video_mg</b></p>
+        </article>
+        <article class="member-team mgn1em">
+            <a class="centext turquesa" href="#"><i class="fas fa-envelope-open-text fa-7x"></i></a>
+            <p class="centext"><b>info@editor-video-mg.com</b></p>
+        </article>
+    </section>
+    
+    <footer>
+        <p class="pieDePag mgb-zero"><b>© 2024 - Editor de Video y Motion Graphics.</b> Todos los derechos reservados.</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>
